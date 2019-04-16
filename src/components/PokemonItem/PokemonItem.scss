@@ -1,0 +1,52 @@
+@import 'bootstrap/scss/bootstrap-grid.scss';
+
+.pokemon-item {
+  margin-bottom: 1em;
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(4);
+  }
+  &__card {
+    background-color: white;
+    border-radius: 4px;
+    height: 350px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 
+                0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  &__image-zone {
+    background-color: #DFDFDF;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  &__id {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: #D1CDCA;
+    padding: 0.4em;
+    font-weight: 500;
+  }
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  &__tags {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  &__tag {
+    font-size: 0.9rem;
+    margin-right: 5px;
+    border: #656565 solid 1px;
+    border-radius: 3px;
+    padding: 3px;
+    display: inline;
+    color: #656565;
+  }
+
+}

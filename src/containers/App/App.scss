@@ -1,0 +1,5 @@
+$browser-ui-padding: 60px;
+.app {
+  height: calc(100vh - #{$browser-ui-padding});
+  padding-top: $browser-ui-padding;
+}

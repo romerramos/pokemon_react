@@ -1,0 +1,20 @@
+$triangle-height: 3.5em;
+.top-frame {
+  &__triangle {
+    width: 0;
+    height: 0;
+    top: 0;
+    border-style: solid;
+    position: absolute;
+    &--left {      
+      left: 0;
+      border-width: $triangle-height $triangle-height 0 0;
+      border-color: black transparent transparent transparent;
+    }
+    &--right {
+      right: 0;
+      border-width: 0 $triangle-height $triangle-height 0;
+      border-color: transparent black transparent transparent;
+    }
+  }
+}

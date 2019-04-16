@@ -1,0 +1,19 @@
+$circle-height: 3.5em;
+.bottom-frame {
+  &__circle {
+    width: $circle-height;
+    height: $circle-height;
+    border-radius: $circle-height;
+    background-color: #E72D33;
+    position: fixed;
+    bottom: 0;
+    &--left {
+      left: 0;
+      border-radius: 0 $circle-height 0 0;
+    }
+    &--right {
+      right: 0;
+      border-radius: $circle-height 0 0 0;
+    }
+  }
+}
