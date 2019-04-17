@@ -8,6 +8,14 @@ const PokemonList = () => (
     <PokemonItem/>
     <PokemonItem/>
     <PokemonItem/>
+    <PokemonItem/>
+    <PokemonItem/>
+    <PokemonItem/>
+    <PokemonItem/>
+    <PokemonItem/>
+    <PokemonItem/>
+    <PokemonItem/>
+    <PokemonItem/>
   </div>
 );
 

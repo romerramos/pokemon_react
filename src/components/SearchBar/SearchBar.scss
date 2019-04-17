@@ -1,8 +1,9 @@
 @import "./variables.scss";
 
 .search-bar {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
+  width: 70%;
   padding: $search-bar-padding;
   &__input {
     width:100%;
