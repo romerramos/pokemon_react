@@ -2,20 +2,15 @@ import React from 'react';
 import './PokemonList.scss';
 import PokemonItem from '../PokemonItem';
 
-const PokemonList = () => (
+const PokemonList = (props) => (
   <div className="pokemon-list">
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
-    <PokemonItem/>
+    { props.pokemons.map((pokemon)=>(
+        <PokemonItem id={pokemon.id} 
+          imageUrl={pokemon.imageUrl} 
+          name={pokemon.name} 
+          tags={pokemon.tags}
+          parentName={pokemon.parentName} />
+      ))}
   </div>
 );
 
