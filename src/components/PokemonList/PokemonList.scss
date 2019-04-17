@@ -1,12 +1,12 @@
 .pokemon-list {
-  justify-content: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  &__container {
-    
-  }
-  &__wrapper {
-    
-    justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 20px;
+  overflow: auto;
+  resize: horizontal;
+  height: 100%;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { 
+    display: none;  // Safari and Chrome
   }
 }

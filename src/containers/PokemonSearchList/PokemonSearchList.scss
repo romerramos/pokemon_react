@@ -6,15 +6,14 @@
   &__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px;
-    height: calc(100vh - (#{$app-padding} +
-      (#{$search-bar-padding} * 2) +
+    padding-left: $search-list-padding;
+    padding-right: $search-list-padding;
+    overflow: hidden;
+    height: calc(100vh - 
+      (#{$app-padding} +
+      #{$search-bar-padding} +
       #{$input-height} +
+      #{$search-bar-padding} +
       #{$search-list-padding}));
-    overflow-y: scroll;
-    scrollbar-width: none;
-    &::-webkit-scrollbar { 
-      display: none;  // Safari and Chrome
-    }
   }
 }
