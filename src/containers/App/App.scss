@@ -1,5 +1,6 @@
-$browser-ui-padding: 60px;
+@import "./variables.scss";
+
 .app {
-  height: calc(100vh - #{$browser-ui-padding});
-  padding-top: $browser-ui-padding;
+  height: 100vh;
+  padding: $app-padding;
 }

@@ -6,6 +6,7 @@ $triangle-height: 3.5em;
     top: 0;
     border-style: solid;
     position: absolute;
+    z-index: 1;
     &--left {      
       left: 0;
       border-width: $triangle-height $triangle-height 0 0;
