@@ -2,6 +2,7 @@ import React from 'react';
 import './PokemonItem.scss';
 import PokemonImage from '../PokemonImage';
 import PokemonTagList from '../PokemonTagList';
+import PokemonParent from '../PokemonParent';
 
 const PokemonItem = () => (
   <div className="pokemon-item">
@@ -9,13 +10,7 @@ const PokemonItem = () => (
       <PokemonImage/>
       <div className="pokemon-item__name">Bulbasaur</div>
       <PokemonTagList/>
-      <div className="pokemon-item__parent">
-        <div className="pokemon-item__bar"></div>
-        <div className="pokemon-item__info">
-          <div className="pokemon-item__label">Evoluciona de:</div>
-          <div className="pokemon-item__parent-name">Ivysaur</div>
-        </div>
-      </div>
+      <PokemonParent/>
     </div>
   </div>
 );
