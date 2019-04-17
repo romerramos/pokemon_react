@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import './PokemonSearchList.scss';
 import PokemonList from '../../components/PokemonList';
 import SearchBar from '../../components/SearchBar';
+import PokemonService from '../../services/PokemonService';
 
 class PokemonSearchList extends Component {
+  
+  componentDidMount() {
+    const service = new PokemonService();
+  }
+
   catchPokemons() {
     return [
       { 
