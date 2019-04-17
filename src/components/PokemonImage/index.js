@@ -1,11 +1,10 @@
 import React from 'react';
 import './PokemonImage.scss';
-import pokemonImage from './pokemon1.png';
 
-const PokemonImage = () => (
+const PokemonImage = (props) => (
   <div className="pokemon-image">
-    <img src={pokemonImage} alt="pokemon"/>
-    <div className="pokemon-image__id">ID / 1</div>
+    <img src={props.imageUrl || 'https://via.placeholder.com/96' } alt="pokemon"/>
+    <div className="pokemon-image__id">ID / {props.id || '#'}</div>
   </div>
 );
 
