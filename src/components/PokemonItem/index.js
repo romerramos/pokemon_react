@@ -1,26 +1,16 @@
 import React from 'react';
 import './PokemonItem.scss';
-import pokemonImage from './pokemon1.png';
+import PokemonImage from '../PokemonImage';
+import PokemonTagList from '../PokemonTagList';
+import PokemonParent from '../PokemonParent';
 
 const PokemonItem = () => (
   <div className="pokemon-item">
     <div className="pokemon-item__card">
-      <div className="pokemon-item__image-zone">
-        <img className="pokemon-item__image" src={pokemonImage} alt="pokemon"/>
-        <div className="pokemon-item__id">ID / 1</div>
-      </div>
+      <PokemonImage/>
       <div className="pokemon-item__name">Bulbasaur</div>
-      <div className="pokemon-item__tags">
-        <div className="pokemon-item__tag">Poison</div>
-        <div className="pokemon-item__tag">Grass</div>
-      </div>
-      <div className="pokemon-item__parent">
-        <div className="pokemon-item__bar"></div>
-        <div className="pokemon-item__info">
-          <div className="pokemon-item__label">Evoluciona de:</div>
-          <div className="pokemon-item__parent-name">Ivysaur</div>
-        </div>
-      </div>
+      <PokemonTagList/>
+      <PokemonParent/>
     </div>
   </div>
 );

@@ -1,0 +1,17 @@
+.pokemon-image {
+  background-color: #DFDFDF;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &__id {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: #D1CDCA;
+    padding: 0.4em;
+    font-weight: 500;
+  }
+}

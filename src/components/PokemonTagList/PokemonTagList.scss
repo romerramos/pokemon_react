@@ -1,0 +1,14 @@
+.pokemon-tag-list {
+  margin-top: 15px;
+  margin-left: 15px;
+  &__tag {
+    font-size: 0.9rem;
+    margin-right: 5px;
+    border: #656565 solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline;
+    color: #656565;
+    text-transform: uppercase;
+  }
+}
