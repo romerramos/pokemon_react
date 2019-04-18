@@ -1,29 +1,35 @@
 export default class PokemonService {
   constructor() {
-    this.baseUrl = 'https://pokeapi.co/api/v2';
+    const BASE_URL = 'https://pokeapi.co/api/v2';
+    this.pokemonUrl = `${BASE_URL}/pokemon/`;
+    this.pokemonSpeciesUrl = `${BASE_URL}/pokemon-species/`;
   }
   
   async catchPokemon() {
-    let catchedPokemons = []
-    const data = await this._getPokemonList();
-    
-    for (const result of data.results) {
-      const dataPokemon = await this._getData(result.url);
-      const speciesUrl = `${this.baseUrl}/pokemon-species/${dataPokemon.name}`
-      const dataPokemonSpecies = await this._getData(speciesUrl);
+    const pokemonList = await this._getData(this.pokemonUrl);
+    return await this._mergePokemonWithSpecies(pokemonList);
+  }
+
+  async _mergePokemonWithSpecies(pokemonList) {
+    let mergedPokemons = [];
+    for (const pokemonItem of pokemonList.results) {
+      const {dataPokemon, dataPokemonSpecies} = await this._apiQueries(pokemonItem);
       const pokemon = this._createPokemon(dataPokemon, dataPokemonSpecies);
-      catchedPokemons.push(pokemon);
+      mergedPokemons.push(pokemon);
     }
-    return catchedPokemons;
+    return mergedPokemons;
+  }
+
+  async _apiQueries(pokemonItem){
+    const dataPokemon = await this._getData(pokemonItem.url);
+    const speciesUrl = `${this.pokemonSpeciesUrl}${dataPokemon.name}`
+    const dataPokemonSpecies = await this._getData(speciesUrl);
+    return {dataPokemon, dataPokemonSpecies};
   }
 
   async _getData(url) {
     const data = await fetch(url);
     return await data.json();
-  }
-
-  async _getPokemonList() {
-    return this._getData(`${this.baseUrl}/pokemon`);
   }
 
   _createPokemon(pokemon, species) {
