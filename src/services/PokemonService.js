@@ -5,23 +5,28 @@ export default class PokemonService {
     this.pokemonSpeciesUrl = `${BASE_URL}/pokemon-species/`;
   }
   
-  async catchPokemon() {
-    const pokemonList = await this._getData(this.pokemonUrl);
-    return await this._mergePokemonWithSpecies(pokemonList);
+  async catchPokemon(pokemonId = null) {
+    const pokemonUrls = pokemonId ? [`${this.pokemonUrl}${pokemonId}`] : await this.getPokemonUrls();
+    return await this._mergePokemonWithSpecies(pokemonUrls);
   }
 
-  async _mergePokemonWithSpecies(pokemonList) {
+  async getPokemonUrls() {
+    const pokemonList = await this._getData(this.pokemonUrl);
+    return pokemonList.results.map(pokemonItem => pokemonItem.url);
+  }
+
+  async _mergePokemonWithSpecies(pokemonUrls) {
     let mergedPokemons = [];
-    for (const pokemonItem of pokemonList.results) {
-      const {dataPokemon, dataPokemonSpecies} = await this._apiQueries(pokemonItem);
+    for (const pokemonUrl of pokemonUrls) {
+      const {dataPokemon, dataPokemonSpecies} = await this._apiQueries(pokemonUrl);
       const pokemon = this._createPokemon(dataPokemon, dataPokemonSpecies);
       mergedPokemons.push(pokemon);
     }
     return mergedPokemons;
   }
 
-  async _apiQueries(pokemonItem){
-    const dataPokemon = await this._getData(pokemonItem.url);
+  async _apiQueries(pokemonUrl){
+    const dataPokemon = await this._getData(pokemonUrl);
     const speciesUrl = `${this.pokemonSpeciesUrl}${dataPokemon.name}`
     const dataPokemonSpecies = await this._getData(speciesUrl);
     return {dataPokemon, dataPokemonSpecies};

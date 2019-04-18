@@ -9,4 +9,8 @@
   &::-webkit-scrollbar { 
     display: none;  // Safari and Chrome
   }
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
 }
