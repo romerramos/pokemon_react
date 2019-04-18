@@ -6,8 +6,12 @@ import { Link } from 'react-router-dom';
 const PokemonList = (props) => (
   <div className="pokemon-list">
     { props.pokemons.map((pokemon)=>(
-      <Link className="pokemon-list__link" to={`pokemon/${pokemon.id}`}>
-        <PokemonItem id={pokemon.id} 
+      <Link 
+        key={pokemon.id}
+        className="pokemon-list__link" 
+        to={`pokemon/${pokemon.id}`}>
+        <PokemonItem
+          id={pokemon.id}
           imageUrl={pokemon.imageUrl} 
           name={pokemon.name} 
           tags={pokemon.tags}
