@@ -8,9 +8,9 @@
   &__input {
     width:100%;
     height: $input-height;
+    padding-left: 1rem;
     border: none;
     font-size: 1rem;
-    text-align: center;
     background-color: #ffffffbd;
     border-radius: 2px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 
@@ -20,6 +20,7 @@
     }
     &::placeholder {
       font-size: 1rem;
+      text-align: center;
     }
   }
 }
