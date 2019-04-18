@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './PokemonSearchList.scss';
 import PokemonList from '../../components/PokemonList';
 import SearchBar from '../../components/SearchBar';
+import PokemonLoading from '../../components/PokemonLoading';
 import PokemonService from '../../services/PokemonService';
 
 class PokemonSearchList extends Component {
@@ -27,24 +28,31 @@ class PokemonSearchList extends Component {
     });
   }
 
-  filterPokemons() {
+  filterPokemons(catchedPokemons) {
     const currentSearch = this.state.search.toLowerCase();
-    return this.state.catchedPokemons.filter((pokemon) => {
+    return catchedPokemons.filter((pokemon) => {
         const pokemonName = pokemon.name.toLowerCase();
         return pokemonName.indexOf(currentSearch) !== -1;
     });
   }
 
-  render() {
+  renderList(catchedPokemons) {
     return (
       <div className="pokemon-search-list">
         <SearchBar 
           value={this.state.search}
           onChange={this.updateSearch.bind(this)} />
         <div className="pokemon-search-list__container">
-          <PokemonList pokemons={this.filterPokemons()}/>
+          <PokemonList pokemons={this.filterPokemons(catchedPokemons)}/>
         </div>
       </div>
+    );
+  }
+
+  render() {
+    const catchedPokemons = this.state.catchedPokemons;
+    return (
+      catchedPokemons.length > 0 ? this.renderList(catchedPokemons) : <PokemonLoading/>
     );
   }
 }

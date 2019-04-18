@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './PokemonShow.scss';
 import PokemonService from '../../services/PokemonService';
 import PokemonItem from '../../components/PokemonItem';
+import PokemonLoading from '../../components/PokemonLoading';
 import { Link } from 'react-router-dom';
 
 class PokemonShow extends Component {
@@ -23,7 +24,7 @@ class PokemonShow extends Component {
 
   renderPokemon(pokemon) {
     return(
-      <div className="pokemon-show"> 
+      <div className="pokemon-show">
         <Link className="pokemon-show__link" to={`/`} >
           <div className="pokemon-show__wrapper">
             <PokemonItem id={pokemon.id} 
@@ -39,7 +40,9 @@ class PokemonShow extends Component {
 
   render() {
     const pokemon = this.state.catchedPokemons[0];
-    return pokemon ? this.renderPokemon(pokemon) : '';
+    return(
+      pokemon ? this.renderPokemon(pokemon) : <PokemonLoading/>
+    );
   }
 }
 
