@@ -7,6 +7,7 @@ $circle-height: 3.5em;
     background-color: #E72D33;
     position: fixed;
     bottom: 0;
+    z-index: -1;
     &--left {
       left: 0;
       border-radius: 0 $circle-height 0 0;
