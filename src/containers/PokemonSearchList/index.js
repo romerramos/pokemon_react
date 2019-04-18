@@ -2,24 +2,20 @@ import React, { Component } from 'react';
 import './PokemonSearchList.scss';
 import PokemonList from '../../components/PokemonList';
 import SearchBar from '../../components/SearchBar';
+import PokemonService from '../../services/PokemonService';
 
 class PokemonSearchList extends Component {
-  catchPokemons() {
-    return [
-      { 
-        id:"1", 
-        imageUrl:"https://bit.ly/2E1j3GF",
-        name:"Bulbasaur", 
-        tags: ["poison", "grass"] 
-      },
-      { 
-        id:"2", 
-        imageUrl:"https://bit.ly/2UnOLS3",
-        name:"Ivysaur", 
-        tags: ["poison", "grass"],
-        parentName: "Bulbasaur"
-      },
-    ]
+  constructor(props) {
+    super(props);
+    this.state = { catchedPokemons: [] };
+  }
+  
+  componentDidMount() {
+    const service = new PokemonService();
+    service.catchPokemon()
+      .then(catchedPokemons => {
+        this.setState({ catchedPokemons });
+      });
   }
 
   render() {
@@ -27,7 +23,7 @@ class PokemonSearchList extends Component {
       <div className="pokemon-search-list">
         <SearchBar/>
         <div className="pokemon-search-list__container">
-          <PokemonList pokemons={this.catchPokemons()}/>
+          <PokemonList pokemons={this.state.catchedPokemons}/>
         </div>
       </div>
     );
