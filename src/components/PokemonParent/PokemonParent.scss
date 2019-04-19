@@ -1,0 +1,23 @@
+.pokemon-parent {
+  margin-top: 15px;
+  margin-left: 15px;
+  display:flex;
+  &__bar {
+    width: 4px;
+    background-color: #3D1E10;
+  }
+  &__info {
+    padding-left: 5px;
+  }
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: #656565;
+  }
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: lowercase;
+  }
+}
+

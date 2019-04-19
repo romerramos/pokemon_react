@@ -1,0 +1,16 @@
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  overflow: auto;
+  resize: horizontal;
+  height: 100%;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { 
+    display: none;  // Safari and Chrome
+  }
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+}

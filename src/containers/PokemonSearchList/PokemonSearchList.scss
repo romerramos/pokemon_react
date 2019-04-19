@@ -1,0 +1,19 @@
+@import "./variables.scss";
+@import "../App/variables.scss";
+@import "../../components/SearchBar/variables.scss";
+
+.pokemon-search-list {
+  &__container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: $search-list-padding;
+    padding-right: $search-list-padding;
+    overflow: hidden;
+    height: calc(100vh - 
+      (#{$app-padding} +
+      #{$search-bar-padding} +
+      #{$input-height} +
+      #{$search-bar-padding} +
+      #{$search-list-padding}));
+  }
+}

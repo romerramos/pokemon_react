@@ -1,0 +1,6 @@
+@import "./variables.scss";
+
+.app {
+  height: calc(100vh - #{$app-padding});
+  padding-top: $app-padding;
+}
